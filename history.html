@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ki-搜索记录</title>
+<style>
+* {
+outline:none;
+}
+html {
+--back:white;
+--shad:#efefef;
+}
+::selection {
+color:#FAFFBC;
+background-color:#DB000A;
+}
+::-moz-selection {
+color:#FAFFBC;
+background-color:#DB000A;
+}
+body {
+background:var(--back);
+}
+.head {
+position:fixed;
+top:0px;
+left:0px;
+background:var(--back);
+z-index: 20;
+width:100vw;
+height:60px;
+filter: drop-shadow(0px 2px 5px var(--shad));
+}
+.head_im {
+position:fixed;
+top:15px;
+left:15px;
+}
+.head_imb {
+position:fixed;
+top:13px;
+right:15px;
+filter:contrast(0%);
+-webkit-filter:contrast(0%);
+}
+.head_p {
+color:#AAAAAA;
+font-size:20px;
+position:fixed;
+top:-5px;
+left:calc(50vw - 40px);
+}
+#botxt {
+margin-top:60px;
+margin-left:-8px;
+width:100vw;
+}
+.botxt_p {
+color:#AAAAAA;
+font-size:18px;
+margin-left:calc(50vw - 54px);
+margin-top:80px;
+}
+.botxt_P {
+color:#AAAAAA;
+font-size:18px;
+padding-left:10px;
+padding-top:10px;
+padding-bottom:10px;
+margin-bottom:-15px;
+}
+.botxt_P:hover {
+background:var(--shad);
+}
+
+#root_back {
+position:fixed;
+top:0px;
+left:0px;
+background:black;
+z-index: 21;
+width:100vw;
+height:100vh;
+opacity:0.2;
+display:none;
+}
+#root {
+position:fixed;
+top:43px;
+right:15px;
+background:var(--back);
+z-index: 21;
+width:200px;
+border-radius:10px;
+display:none;
+}
+#root p {
+color:#AAAAAA;
+font-size:1em;
+margin-left:10px;
+}
+#root p:hover {
+color:#eee;
+}
+</style>
+</head>
+<body>
+
+<div class="head">
+<img src="hi_1.svg" height="25" class="head_im" onclick="JavaScript:window.history.back();">
+<p class="head_p">搜索记录</p>
+<img src="1.svg" height="30" class="head_imb" onclick="rooon()">
+</div>
+<div id="root_back" onclick="roono()"></div>
+<div id="root">
+<p onclick="roota()">启用搜索记录功能<b id="idroota" style="Float:right;margin-right:15px;width:1.1em;height:1.1em;margin-top:3px;border-radius:80px;background:#DB000A;border-style:solid;border-width:1px;"></b></p>
+<p onclick="rootb()">删除所有记录</p>
+</div>
+<div id="botxt">
+</div>
+<script>
+var rootVA=document.getElementById("idroota");
+if(localStorage.hion==undefined){
+var rootVa=0;
+}else{
+if(localStorage.hion==1){
+rootVA.style.background="none";
+var rootVa=1;
+}else{
+var rootVa=0;
+}
+}
+
+if(localStorage.bl==undefined){}else{
+var b = document.querySelector('html');
+if(localStorage.bl==1){
+b.style.setProperty('--back','#2B2B2B');
+b.style.setProperty('--shad','black');
+}else{
+b.style.setProperty('--back','white');
+b.style.setProperty('--shad','#efefef');
+}
+}
+
+showli();
+
+function showli(){
+if(localStorage.hi==undefined){
+document.getElementById("botxt").innerHTML=`<p class="botxt_p">没有搜索记录</p>`
+}else{
+var t=JSON.parse(localStorage.hi);
+if(t.length==1){
+document.getElementById("botxt").innerHTML=`<p class="botxt_p">没有搜索记录</p>`
+}else{
+document.getElementById("botxt").innerHTML="";
+for(var i=1;i<=t[0];i++){
+document.getElementById("botxt").innerHTML+=`<p class="botxt_P" onclick="lookFor(this)">`+t[i]+`</p><img style="Float:right;margin-right:5vw;margin-top:-15px;z-index:2;" src="hi_2.svg" onclick="nob(`+i+`)">`;
+}
+}
+}
+}
+function lookFor(p){
+window.open("index.html?p="+p.innerHTML);
+}
+function nob(o){
+var ta=JSON.parse(localStorage.hi);
+ta.splice(o,1);
+ta[0]=ta[0]-1;
+
+localStorage.hi=JSON.stringify(ta);
+showli();
+}
+/* 使用" V "作为连接符
+   如" rootVa "等于" root_a" */
+function roota(){
+rootVa++;
+if(rootVa==2){
+rootVa=0;
+}
+if(rootVa==1){
+rootVA.style.background="none";
+localStorage.hion=1;
+}
+if(rootVa==0){
+rootVA.style.background="#DB000A";
+localStorage.hion=0;
+}
+}
+
+function roono(){
+let rooback=document.getElementById("root_back");
+let roo=document.getElementById("root");
+rooback.style.display="none";
+root.style.display="none";
+}
+function rooon(){
+let rooback=document.getElementById("root_back");
+let roo=document.getElementById("root");
+rooback.style.display="inline";
+root.style.display="inline";
+}
+function rootb(){
+let i=[0];
+localStorage.hi=JSON.stringify(i);
+showli();
+}
+
+window.onstorage = function () {
+showli();
+}
+</script>
+</body>
+</html>

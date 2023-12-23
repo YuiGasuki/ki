@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="浏览器起始页,简洁">
+<meta name="author" content="kondaisuki">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<link rel= "shortcut icon" href ="ki.jpg" type="image/x-icon" />
+<title>Ki</title>
+<style>
+body {
+}
+* {
+outline:none;
+
+}
+#div {
+
+    margin: auto;
+    margin-top:6px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    z-index: 3;
+}
+#div_btn {
+width:50px;
+height:42.5px;
+border-style:solid;
+border-width:1.7px;
+border-color:#AAAAAA;
+border-top-right-radius:10px;
+border-bottom-right-radius:10px;
+background:#FF6699;
+overflow:hidden;
+}
+#div_ipt {
+border-style:solid;
+border-right:none;
+height:40px;
+width:200px;
+background:white;
+font-size:1em;
+color:#AAAAAA;
+border-color:#AAAAAA;
+border-top-left-radius:10px;
+border-bottom-left-radius:10px;
+text-overflow: ellipsis;
+}
+#div_ipt:hover {
+text-overflow:clip;
+}
+#div_two {
+width:15px;
+height:15px;
+border-style:solid;
+border-width:2px;
+border-radius:15px;
+border-color:#AAAAAA;
+}
+#div_three {
+width:8px;
+height:2px;
+transform:rotate(90deg);
+background:#AAAAAA;
+margin-top:3px;
+margin-left:6px;
+}
+#div_one {
+transform:rotate(-30deg);
+margin-left:14px;
+margin-top:4px;
+}
+#div_ul {
+list-style:none;
+position: absolute;
+top:30px;
+border-style:solid;
+border-top-style:none;
+border-width:1.5px;
+max-height:150px;
+width:212px;
+overflow:auto;
+display:none;
+background:white;
+color:#AAAAAA;
+z-index: -1;
+}
+#div_ul li {
+margin-left:-43px;
+padding-left:5px;
+padding-bottom:5px;
+width:250px;
+overflow:auto;
+white-space:nowrap;
+text-overflow: ellipsis;
+}
+#div_ul li:hover {
+background:rgb(0%, 0%, 0%,2%);
+border-bottom-style:solid;
+width:auto;
+text-overflow: clip;
+}
+
+
+#roo_im {
+width:35px;
+position:fixed;
+bottom:1vh;
+right:1vh;
+z-index: 3;
+filter:contrast(0%);
+-webkit-filter:contrast(0%);
+}
+#roo_bas {
+width:100vw;
+height:100vh;
+position:fixed;
+top:0vh;
+left:0vh;
+
+display:none;
+z-index: 3;
+}
+#roo_div {
+width:60vw;
+height:100vh;
+position:fixed;
+top:0vh;
+left:0vh;
+background:rgb(100%, 100%, 100%,90%);
+margin-left:-70vw;
+border-bottom-style:solid;
+border-color:#AAAAAA;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+color:white;
+filter: drop-shadow(0px 2px 10px #525252);
+z-index: 3;
+}
+#roo_div p {
+color:black;
+margin-left:5vw;
+font-size:0.9em;
+margin-top:2vh;
+}
+#roo_div p:hover {
+color:rgb(0%, 0%, 0%,35%);
+}
+#roo_div p:first-child:hover {
+color:black;
+}
+#div_b {
+position:fixed;
+top:0vh;
+left:0vh;
+width:100vw;
+height:100vh;
+}
+#div_di {
+position:fixed;
+top:15vh;
+left:15vw;
+width:70vw;
+height:60vh;
+background:white;
+border-radius:6vw;
+z-index: 4;
+overflow:auto;
+display:none;
+}
+#div_di_div {
+position:fixed;
+top:0vh;
+left:0vh;
+width:100vw;
+height:100vh;
+background:rgb(0%, 0%, 0%,35%);
+z-index: 4;
+display:none;
+}
+
+#div_di_p {
+margin-left:5vw;
+margin-top:2vh;
+font-size:1.1em;
+}
+#div_di ul {
+list-style-type:none;
+margin-left:-11.1vw;
+}
+#div_di ul li {
+height:4vh;
+padding-left:4vw;
+padding-top:1vh;
+padding-bottom:1vh;
+width:66vw;
+transition:0.5s;
+}
+#div_di ul li:hover {
+background:#FF6699;
+color:white;
+}
+#div_di_zd {
+position:fixed;
+top:35vh;
+left:15vw;
+width:70vw;
+height:25vh;
+background:white;
+border-radius:6vw;
+overflow:auto;
+z-index: 4;
+display:none;
+}
+#div_di_zd p {
+margin-left:5vw;
+margin-top:2vh;
+font-size:1.2em;
+}
+#div_di_zd input {
+width:70vw;
+height:8vh;
+border-style:none;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-bottom-color:rgb(0%, 0%, 0%,15%);
+font-size:1em;
+overflow:auto;
+}
+#zd_di {
+display:flex;
+width:35vw;
+margin-left:35vw;
+}
+#zd_di div {
+color:#FF6699;
+font-size:1.1em;
+margin-left:5vw;
+margin-top:3vh;
+}
+#star_b {
+position:fixed;
+top:0vh;
+left:0vh;
+width:100vw;
+height:100vh;
+background:rgb(0%, 0%, 0%,35%);
+z-index: 3;
+display:none;
+}
+#star {
+position:fixed;
+top:20vh;
+left:15vw;
+width:70vw;
+height:50vh;
+background:white;
+border-radius:6vw;
+overflow:auto;
+z-index: 4;
+display:none;
+}
+.star_p {
+font-size:1.2em;
+margin-left:5vw;
+margin-top:1vh;
+}
+.star_int_p {
+font-size:1.1em;
+margin-left:2vw;
+margin-top:1vh;
+}
+#star input {
+border-style:none;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-bottom-color:rgb(0%, 0%, 0%,15%);
+font-size:1em;
+overflow:auto;
+width:66vw;
+}
+#star_div div {
+color:#FF6699;
+font-size:1.1em;
+margin-left:5vw;
+margin-top:3vh;
+}
+#star_div {
+display:flex;
+width:35vw;
+margin-left:35vw;
+
+}
+#star_im {
+object-fit:cover;
+width:70px;
+height:70px;
+border-style:solid;
+border-width:1px;
+border-color:rgb(0%, 0%, 0%,50%);
+border-radius:80px;
+margin-bottom:18px;
+z-index: 4;
+}
+input::-webkit-input-placeholder{
+color:rgb(0%, 0%, 0%,20%);
+}
+#star_im_p {
+z-index: 5;
+margin-top:-82px;
+margin-left:2px;
+font-size:2.2em;
+pointer-events:none;
+color:white;
+}
+#starb img {
+object-fit:cover;
+width:65px;
+height:65px;
+border-style:solid;
+border-width:0.5px;
+border-color:rgb(0%, 0%, 0%,50%);
+border-radius:80px;
+margin-bottom:18px;
+}
+.starb_n {
+font-size:0.8em;
+margin-top:-18px;
+white-space:nowrap;
+text-overflow: ellipsis;
+width:65px;
+text-align:center;
+overflow :hidden;
+color:#AAAAAA;
+}
+.starb_n:hover {
+text-overflow: clip;
+overflow :auto;
+}
+.starb_p {
+z-index: 2;
+margin-top:-78px;
+margin-left:2px;
+font-size:2em;
+color:white;
+}
+#starb div {
+margin-left:20px;
+width:65px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow :hidden;
+text-overflow:ellipsis;
+}
+#starsc input {
+border-style:none;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-bottom-color:rgb(0%, 0%, 0%,15%);
+font-size:1em;
+overflow:auto;
+width:66vw;
+}
+#starsc_b {
+position:fixed;
+top:0vh;
+left:0vh;
+width:100vw;
+height:100vh;
+background:rgb(0%, 0%, 0%,35%);
+z-index: 4;
+display:none;
+}
+#starsc {
+position:fixed;
+top:20vh;
+left:7vh;
+width:70vw;
+height:50vh;
+background:white;
+z-index: 4;
+border-radius:5vw;
+overflow:auto;
+display:none;
+}
+#starsc_p {
+font-size:1.2em;
+margin-left:5vw;
+margin-top:1vh;
+}
+#starsc_di {
+display:flex;
+width:40vw;
+margin-left:30vw;
+}
+#starsc_di div {
+color:#FF6699;
+font-size:1.1em;
+margin-left:7vw;
+margin-top:4vh;
+}
+
+
+#starsq {
+position:fixed;
+top:30vh;
+left:7vh;
+width:70vw;
+height:20vh;
+background:white;
+z-index: 4;
+border-radius:5vw;
+overflow:auto;
+filter: drop-shadow(0px 2px 10px #525252);
+display:none;
+}
+#starsq p {
+font-size:1.3em;
+margin:0vw;
+width:66vw;
+height:2vh;
+margin-left:0px;
+padding-left:4vw;
+padding-top:2vh;
+padding-bottom:6vh;
+}
+#starsq p:hover {
+background:rgb(0%, 0%, 0%,5%);
+}
+#starsc_im {
+object-fit:cover;
+width:70px;
+height:70px;
+border-style:solid;
+border-width:1px;
+border-color:rgb(0%, 0%, 0%,50%);
+border-radius:80px;
+margin-bottom:18px;
+z-index: 4;
+}
+#starsc_im_p {
+z-index: 5;
+margin-top:-83px;
+margin-left:2px;
+font-size:2.2em;
+pointer-events:none;
+color:white;
+}
+#tc {
+position:fixed;
+top:-10vh;
+left:20vw;
+width:60vw;
+height:10vw;
+padding:0vw;
+background:#232323;
+z-index: 20;
+border-radius:5vw;
+overflow:hidden;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+}
+</style>
+</head>
+
+<body>
+<div id="tc"><p id="tcp"><spen style="margin-right:10px;margin-left:-10px;">✿</spen>欢迎!祝你使用愉快_</p>
+</div>
+
+
+
+<div id="div_b" onclick="b()"></div>
+<div id="div">
+
+<input type="text" id="div_ipt" onkeydown="ent()" oninput="tss()" onclick="tss()">
+<div onclick="feela()" id="div_btn" ondblclick="wayla()">
+<div id="div_one">
+<div id="div_two"></div>
+<div id="div_three"></div>
+</div>
+</div>
+<br>
+
+<ul id="div_ul">
+</ul>
+</div>
+
+<div id="starb" style="
+position:absolute;
+top:60%;
+left:0px;
+width:100vw;
+
+overflow:hidden;
+display: flex;
+flex-wrap: wrap; 
+">
+
+
+
+</div>
+
+<div id="div_di_div" onclick="xlway()">
+</div>
+<div id="div_di_zd">
+<p>自定义</p>
+<input type="text" id="zd_ipt" >
+<div id="zd_di">
+<div onclick="zdno()">取消</div>
+<div onclick="zdyes(0)">确定</div>
+</div>
+</div>
+<div id="div_di">
+<p id="div_di_p"><b>搜索引擎</b></p>
+<ul id="div_di_ul">
+<li onclick="zd()">自定义</li>
+<li onclick="xway('https://m.baidu.com/s?from=1022282z&word=',1)">百度</li>
+<li onclick="xway('https://wap.sogou.com/web/sl?keyword=',2)">搜狗</li>
+<li onclick="xway('https://cn.bing.com/search?q=',3)">必应</li>
+<li onclick="xway('https://yz.m.sm.cn/s?from=wm827671&q=',4)">神马</li>
+<li onclick="xway('https://m.so.com/s?q=',5)">360</li>
+<li onclick="xway('https://so.toutiao.com/search?keyword=',6)">头条</li>
+<li onclick="xway('https://quark.sm.cn/s?q=',7)">夸克</li>
+</ul>
+</div>
+<div id="roo_bas" onclick="roo()"></div>
+<img src="1.svg" id="roo_im" onclick="roo()">
+
+<div id="roo_div">
+<p style="margin-top:1vh;"><b>更多功能</b></p>
+<p onclick="rooba()">添加书签</p>
+<p onclick="rootx()">欢迎问候<b id="rootx_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#FF6699;border-style:solid;"></b></p>
+<p onclick="roobl()">夜间模式<b id="roobl_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#eee;border-style:solid;"></b></p>
+<p onclick="window.location.assign('index.html');" style="margin-top:100px;">体验新版</p>
+<p onclick="localStorage.clear();location.reload()"  id="roo_p_b">清理数据</p>
+</div>
+
+<div id="star_b" onclick="starno()"></div>
+<div id="star">
+<p class="star_p">添加书签</p>
+<div style="height:100px;display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow :hidden;margin-left:20px;
+width:80px;">
+<img src="acquiesce.png" id="star_im">
+<p id="star_im_p">默</p></div>
+<p class="star_int_p"><input type="text" id="star_int_b" placeholder="图标(选填)" onkeyup="starim()"></p>
+<p class="star_int_p"><input type="text" id="star_int_n" onkeyup="starna()" placeholder="标题(必填)"></p>
+<p class="star_int_p"><input type="text" id="star_int_u" placeholder="地址(必填)" value="https://"></p>
+<div id="star_div">
+<div id="star_no" onclick="starno()">取消</div>
+<div id="star_yes" onclick="staryes()">保存</div>
+</div>
+</div>
+
+<div id="starsc_b" onclick="starscno()"></div>
+<div id="starsc">
+<p id="starsc_p">编辑书签</p>
+<div style="display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow :hidden;margin-left:20px;
+width:80px;">
+<img src="acquiesce.png" id="starsc_im">
+<p id="starsc_im_p">默</p></div>
+<p class="star_int_p"><input type="text" id="starsc_i" placeholder="图标" onkeyup="starscim()"></p>
+<p class="star_int_p"><input type="text" id="starsc_n" onkeyup="starscna()" placeholder="标题"></p>
+<p class="star_int_p"><input type="text" id="starsc_u" placeholder="地址"></p>
+<div id="starsc_di">
+<div onclick="starscno()">取消</div>
+<div onclick="starscdon()">保存</div>
+</div>
+
+</div>
+<div id="starsq">
+<p onclick="starscyes()">删除</p>
+<p onclick="starsc()">编辑</p>
+</div>
+<script>
+roopb();
+var rootxa=0;
+var rootba=0;
+var idtx=document.getElementById('tc');
+function tsc(tsca,tscb){
+
+setTimeout(function(){
+idtx.style.transition = "0.3s";idtx.style.marginTop = "0vh";
+},3000);
+
+setTimeout(function(){
+idtx.style.transition = "0.3s";idtx.style.marginTop = "15vh";
+document.getElementById("tcp").innerHTML=`<spen style="margin-right:10px;margin-left:-10px;">`+tsca+`</spen>`+tscb;
+},100);
+}
+if(localStorage.tx==undefined){
+tsc("✿","欢迎!祝你使用愉快_");
+}else{
+if(localStorage.tx==1){
+tsc("✿","欢迎!祝你使用愉快_");
+}else{
+document.getElementById("rootx_b").style.background="#eee";
+rootxa=1;
+}
+}
+if(localStorage.bl==undefined){
+
+}else{
+if(localStorage.bl==1){
+document.getElementById("roobl_b").style.background="#FF6699";
+document.body.style.background= "#2B2B2B";
+document.getElementById("div_ipt").style.background= "#2B2B2B";
+document.getElementById("div_ul").style.background= "#2B2B2B";
+rootba=1;
+}else{
+document.getElementById("roobl_b").style.background="#eee";
+document.body.style.background= "white";
+document.getElementById("div_ipt").style.background= "white";
+document.getElementById("div_ul").style.background= "white";
+rootba=0;
+}
+}
+function roopb(){
+var sizeb = 0;
+  for(item in window.localStorage) {
+    if(window.localStorage.hasOwnProperty(item)) {
+      sizeb += window.localStorage.getItem(item).length;
+    }
+  }
+
+  document.getElementById("roo_p_b").innerHTML=`清理数据<span style="color:rgb(0%, 0%, 0%,35%);Float:right;margin-right:5vw;">`+(sizeb / 1024).toFixed(2) + "KB</span>";
+}
+var way;
+var starimq=document.getElementById('star_im');
+var starscimq=document.getElementById('starsc_im');
+locstar();
+if(localStorage.s==undefined){
+var i=[0];
+}else{
+var i=JSON.parse(localStorage.s);}
+function locstar(){
+if(localStorage.s==undefined){
+document.getElementById("starb").innerHTML="";
+}else{
+var i=JSON.parse(localStorage.s);
+var u=1;
+document.getElementById("starb").innerHTML="";
+for(var y=1;y <= i[0];y++){
+
+if(i[u]==""){
+document.getElementById("starb").innerHTML+=`<div data-img="`+i[u+2]+`" oncontextmenu="starq(`+u+`)" onclick="starba(this)">
+<img src="acquiesce.png" >
+<p class="starb_p" >`+i[u+1].charAt(0)+`</p>
+<p class="starb_n">`+i[u+1]+`</p>
+</div>`;
+}else{
+document.getElementById("starb").innerHTML+=`<div data-img="`+i[u+2]+`" oncontextmenu="starq(`+u+`)" onclick="starba(this)">
+<img src="`+i[u]+`" >
+
+<p class="starb_n">`+i[u+1]+`</p>
+</div>`;
+}
+
+u=u+3;
+}
+}
+}
+function starim(){
+document.getElementById("star_im").src=document.getElementById("star_int_b").value;
+document.getElementById("star_im_p").style.display="none";
+starimn=1;
+}
+var starimn=0;
+var starscimn=0;
+starimq.onerror =function (){
+document.getElementById("star_im").src="acquiesce.png";
+document.getElementById("star_im_p").style.display="flex";
+starimn=0;
+}
+
+function rootx(){
+rootxa=rootxa+1;
+if(rootxa==2){
+rootxa=0;
+}
+if(rootxa==1){
+document.getElementById("rootx_b").style.background="#eee";
+localStorage.tx=0;
+}
+if(rootxa==0){
+document.getElementById("rootx_b").style.background="#FF6699";
+localStorage.tx=1;
+}
+}
+function roobl(){
+rootba=rootba+1;
+if(rootba==2){
+rootba=0;
+}
+if(rootba==0){
+document.getElementById("roobl_b").style.background="#eee";
+document.body.style.background= "white";
+document.getElementById("div_ipt").style.background= "white";
+document.getElementById("div_ul").style.background= "white";
+localStorage.bl=0;
+}
+if(rootba==1){
+document.getElementById("roobl_b").style.background="#FF6699";
+document.body.style.background= "#2B2B2B";
+document.getElementById("div_ipt").style.background= "#2B2B2B";
+document.getElementById("div_ul").style.background= "#2B2B2B";
+localStorage.bl=1;
+}
+}
+function starscim(){
+document.getElementById("starsc_im").src=document.getElementById("starsc_i").value;
+document.getElementById("starsc_im_p").style.display="none";
+starscimn=1;
+}
+starscimq.onerror =function (){
+document.getElementById("starsc_im").src="acquiesce.png";
+document.getElementById("starsc_im_p").style.display="flex";
+starscimn=0;
+}
+function starna(){
+if(document.getElementById("star_int_n").value.charAt(0)==""){
+document.getElementById("star_im_p").innerHTML="默";
+}else{
+document.getElementById("star_im_p").innerHTML=document.getElementById("star_int_n").value.charAt(0); 
+  }
+  }
+function starscna(){
+if(document.getElementById("starsc_n").value.charAt(0)==""){
+document.getElementById("starsc_im_p").innerHTML="默";
+}else{
+document.getElementById("starsc_im_p").innerHTML=document.getElementById("starsc_n").value.charAt(0); 
+  }
+  }
+if(localStorage.way==undefined){
+way='https://m.baidu.com/s?from=1022282z&word=';
+}else{
+way=localStorage.way;
+}
+var wayx;
+if(localStorage.wayj==undefined){
+wayx=1;
+}else{
+wayx=localStorage.wayj;
+}
+function staryes(){
+if(document.getElementById("star_int_u").value.trim()==""){
+return
+}
+if(document.getElementById("star_int_n").value.trim()==""){
+return
+}
+if(document.getElementById("star_int_u").value.substr(0,8)=="https://"||document.getElementById("star_int_u").value.substr(0,7)=="http://"){
+}else{
+return
+}
+starno();
+
+if(starimn==1){
+
+i.push(document.getElementById("star_int_b").value,document.getElementById("star_int_n").value,document.getElementById("star_int_u").value);
+}else{
+i.push('',document.getElementById("star_int_n").value,document.getElementById("star_int_u").value);
+}
+i[0]=i[0]+1;
+localStorage.s=JSON.stringify(i);
+locstar();
+roopb();
+document.getElementById("star_int_n").value="";
+document.getElementById("star_int_u").value="https://";
+document.getElementById("star_int_b").value="";
+document.getElementById("star_im_p").innerHTML="默";
+document.getElementById("star_im").src="acquiesce.png";
+document.getElementById("star_im_p").style.display="flex";
+starimn=0;
+}
+var idstarb=document.getElementById('star_b');
+var idstar=document.getElementById('star');
+var idstarsc=document.getElementById('starsc');
+var idstarscb=document.getElementById('starsc_b');
+var idstarsq=document.getElementById('starsq');
+function rooba(){
+roo();
+setTimeout(function(){
+idstar.style.transition = "0.3s";idstar.style.marginTop = "0vh";
+idstarb.style.transition = "0.3s";idstarb.style.opacity = "1";
+idstar.style.transition = "0.3s";idstar.style.opacity = "1";
+},300);
+idstarb.style.display="inline";
+idstar.style.display="inline";
+}
+
+function starsc(){
+starqn();
+document.getElementById("starsc_u").value=i[starqb+2];
+if(i[starqb]==''){
+document.getElementById("starsc_i").value="";
+document.getElementById("starsc_im").src="acquiesce.png";
+starscimn=0;
+document.getElementById("starsc_im_p").style.display="flex";
+}else{
+document.getElementById("starsc_i").value=i[starqb];
+document.getElementById("starsc_im").src=i[starqb];
+document.getElementById("starsc_im_p").style.display="none";
+starscimn=1;
+}
+document.getElementById("starsc_n").value=i[starqb+1];
+document.getElementById("starsc_im_p").innerHTML=i[starqb+1].charAt(0);
+setTimeout(function(){
+idstarsc.style.transition = "0.3s";idstarsc.style.marginTop = "0vh";
+idstarscb.style.transition = "0.3s";idstarscb.style.opacity = "1";
+idstarsc.style.transition = "0.3s";idstarsc.style.opacity = "1";
+idstarscb.style.display="inline";
+},300);
+idstarscb.style.display="inline";
+idstarsc.style.display="inline";
+}
+function starscyes(){
+starscno();
+i.splice(starqb,3);
+i[0]=i[0]-1;
+localStorage.s=JSON.stringify(i);
+locstar();
+roopb();
+}
+function starscdon(){
+if(document.getElementById("starsc_u").value.trim()==""){
+return
+}
+if(document.getElementById("starsc_n").value.trim()==""){
+return
+}
+starscno();
+
+
+if(starscimn==1){
+i[starqb]=document.getElementById("starsc_i").value;
+i[starqb+1]=document.getElementById("starsc_n").value;
+i[starqb+2]=document.getElementById("starsc_u").value;
+}else{
+i[starqb]="";
+i[starqb+1]=document.getElementById("starsc_n").value;
+i[starqb+2]=document.getElementById("starsc_u").value;
+}
+localStorage.s=JSON.stringify(i);
+locstar();roopb();
+}
+function starscno(){
+starqn()
+setTimeout(function(){
+idstarscb.style.display="none";
+idstarsc.style.display="none";
+},300);
+idstarsc.style.transition = "0.3s";idstarsc.style.marginTop = "5vh";
+idstarscb.style.transition = "0.3s";idstarscb.style.opacity = "0";
+idstarsc.style.transition = "0.3s";idstarsc.style.opacity = "0";
+
+}
+starscno();
+function starno(){
+setTimeout(function(){
+idstarb.style.display="none";
+idstar.style.display="none";
+},300);
+idstar.style.transition = "0.3s";idstar.style.marginTop = "5vh";
+idstarb.style.transition = "0.3s";idstarb.style.opacity = "0";
+idstar.style.transition = "0.3s";idstar.style.opacity = "0";
+}
+
+starno();
+function starba(starurl){
+let sytaroo=starurl.getAttribute("data-img");
+window.location.assign(sytaroo)
+}
+
+var a=document.getElementById("div_di_ul").getElementsByTagName("li");
+a[wayx].style.background="#FF6699";
+a[wayx].style.color="white";
+
+document.getElementById('zd_ipt').value=way;
+function xway(ways,wayj){
+way=ways;
+var a=document.getElementById("div_di_ul").getElementsByTagName("li");
+for(var i=0;i<8;i++){
+a[i].style.background="white";
+a[i].style.color="black";
+}
+a[wayj].style.background="#FF6699";
+a[wayj].style.color="white";
+localStorage.setItem("way",way);
+localStorage.setItem("wayj",wayj);
+
+setTimeout(function(){
+xlway();},200)
+}
+var divdidiv=document.getElementById("div_di_div");
+var divdi=document.getElementById("div_di");
+var zddi=document.getElementById("div_di_zd");
+xlway();
+zdno();
+function xlway(){
+setTimeout(function(){
+divdidiv.style.display="none";
+divdi.style.display="none";
+},300);
+divdi.style.transition = "0.3s";divdi.style.marginTop = "5vh";
+divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "0";
+divdi.style.transition = "0.3s";divdi.style.opacity = "0";
+zdno();
+}
+
+function zd(){
+setTimeout(function(){
+divdi.style.display="none";
+},300);
+divdi.style.transition = "0.3s";divdi.style.marginTop = "5vh";
+divdi.style.transition = "0.3s";divdi.style.opacity = "0";
+zdb();
+}
+function zdno(){
+setTimeout(function(){
+divdidiv.style.display="none";
+zddi.style.display="none";
+},300);
+zddi.style.transition = "0.3s";zddi.style.marginTop = "5vh";
+divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "0";
+zddi.style.transition = "0.3s";zddi.style.opacity = "0";
+}
+function zdyes(zdj){
+var a=document.getElementById("div_di_ul").getElementsByTagName("li");
+for(var i=0;i<8;i++){
+a[i].style.background="white";
+a[i].style.color="black";
+}
+a[0].style.background="#FF6699";
+a[0].style.color="white";
+localStorage.setItem("wayj",zdj);
+
+zdno();
+way=document.getElementById('zd_ipt').value;
+localStorage.setItem("way",way);
+
+}
+function zdb(){
+setTimeout(function(){
+zddi.style.transition = "0.3s";zddi.style.marginTop = "0vh";
+divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "1";
+zddi.style.transition = "0.3s";zddi.style.opacity = "1";
+},300);
+divdidiv.style.display="inline";
+zddi.style.display="inline";
+}
+let hu=null;
+function feela(){
+clearTimeout(hu);
+hu=setTimeout(function () {
+feel();
+clearTimeout(hu);
+},200);
+}
+function wayla(){
+clearTimeout(hu);
+setTimeout(function(){
+divdi.style.transition = "0.3s";divdi.style.marginTop = "0vh";
+divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "1";
+divdi.style.transition = "0.3s";divdi.style.opacity = "1";
+},300);
+divdidiv.style.display="inline";
+divdi.style.display="inline";
+
+}
+
+var ul=document.getElementById("div_ul");
+var url1 ='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=';
+var url2='&cb=';
+
+function tss(){
+var script=document.createElement("script");
+script.src=url1+document.getElementById('div_ipt').value+url2+'Search_Data';
+document.body.appendChild(script);
+if(document.getElementById('div_ipt').value.trim()==""){
+ul.innerHTML="";
+document.getElementById("div_ul").style.display="none";
+}else{
+document.getElementById("div_ul").style.display="list-item";
+}
+
+}
+function b(){
+document.getElementById("div_ul").style.display="none";
+
+}
+function Search_Data(data){
+var arr=data.s;
+if(document.getElementById('div_ipt').value.match(/http/)!=null){
+ul.innerHTML="";
+let httexl="http"+document.getElementById('div_ipt').value.match(/http(\S*)/)[1];
+ul.innerHTML+=`<li style="border-bottom-style:solid;" onclick="liopen('`+httexl+`')">打开 `+httexl+`<li>`;
+}else{
+if(data.s==""){
+document.getElementById("div_ul").style.display="none";
+return
+}
+ul.innerHTML="";
+}
+
+for(var i=0;i < arr.length;i++){
+ul.innerHTML+=`<li onclick="lia('`+arr[i]+`')">`+arr[i]+`<li>`;
+}
+}
+function lia(l){
+document.getElementById('div_ipt').value=l;
+feel();
+}
+function feel(){
+var text=document.getElementById('div_ipt').value;
+if(text.trim()==""){
+tsc("!","输入不能为空");
+}else{
+window.location.assign(way+text)
+}
+        
+
+}
+function ent(ev) {
+	var ev = ev || window.event
+	if(ev.keyCode == "13") {
+  feel();
+	}
+}
+function liopen(liopena){
+window.location.assign(liopena)
+}
+var rooa=0;
+function roo(){
+rooa++
+if(rooa==2){
+rooa=0;
+}
+if(rooa==1){
+var roo = document.getElementById('roo_div');roo.style.transition = "0.5s"; roo.style.marginLeft = "0vh";
+var rooi= document.getElementById('roo_im');rooi.style.transition = "0.5s"; rooi.style.transform = "rotate(200deg)";
+document.getElementById('roo_bas').style.display="inline";
+}else if(rooa==0){
+var roo = document.getElementById('roo_div');roo.style.transition = "0.5s"; roo.style.marginLeft = "-70vw";
+var rooi= document.getElementById('roo_im');rooi.style.transition = "0.5s"; rooi.style.transform = "rotate(0deg)";
+document.getElementById('roo_bas').style.display="none";
+}
+}
+var starqb;
+function starq(starqa){
+starqb=starqa;
+setTimeout(function(){
+idstarsq.style.transition = "0.3s";idstarsq.style.marginTop = "0vh";
+idstarscb.style.transition = "0.3s";idstarscb.style.opacity = "1";
+idstarsq.style.transition = "0.3s";idstarsq.style.opacity = "1";
+},300);
+idstarscb.style.display="inline";
+idstarsq.style.display="inline";
+}
+starqn()
+function starqn(){
+setTimeout(function(){
+idstarscb.style.display="none";
+idstarsq.style.display="none";
+},300);
+idstarsq.style.transition = "0.3s";idstarsq.style.marginTop = "-20vh";
+idstarscb.style.transition = "0.3s";idstarscb.style.opacity = "0";
+idstarsq.style.transition = "0.3s";idstarsq.style.opacity = "0";
+}
+</script>
+</body>
+</html>
