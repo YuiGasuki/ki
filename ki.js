@@ -756,3 +756,26 @@ tsc("✿","复制成功");
    e.clearSelection();
 }).on('error', function(e) {
 });
+  var idwarnBlack = document.getElementById('warn_black');
+  var idwarn = document.getElementById('warn');
+  
+function warnno(){
+ setTimeout(function(){
+idwarnBlack.style.display="none";
+idwarn.style.display="none";
+},300);
+idwarn.style.transition = "0.3s";idwarn.style.marginTop = "50px";
+idwarnBlack.style.transition = "0.3s";idwarnBlack.style.opacity = "0";
+idwarn.style.transition = "0.3s";idwarn.style.opacity = "0"; 
+}
+function fwarn(warna){
+	document.getElementById('warn_p').innerHTML=warna;
+	setTimeout(function(){
+idwarn.style.transition = "0.3s";idwarn.style.marginTop = "0vh";
+idwarnBlack.style.transition = "0.3s";idwarnBlack.style.opacity = "1";
+idwarn.style.transition = "0.3s";idwarn.style.opacity = "1";
+},300);
+idwarnBlack.style.display="inline";
+idwarn.style.display="inline";
+}
+warnno();

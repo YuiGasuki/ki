@@ -96,10 +96,11 @@ flex-wrap: wrap;
 </div>
 
 <div id="roo_div">
-<div style="height:85vh;overflow:auto;">
+<div style="height:85vh;overflow:auto;" id="roo_img_div">
 <p style="margin-top:1vh;"><b>更多功能</b></p>
 <p onclick="rooba()">添加书签</p>
 <p onclick="picyes()">修改背景</p>
+<img src="6.svg" onclick="fwarn('记录搜索内容。默认为关闭，可按照自己的需求开关，内容储存在本地，所以会占用空间')">
 <p onclick="JavaScript:window.open('history.html')">搜索记录</p>
 <p onclick="rootx()">欢迎问候<b id="rootx_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#DB000A;border-style:solid;border-width:1px;"></b></p>
 <p onclick="roobl()">夜间模式<b id="roobl_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#eee;border-style:solid;border-width:1px;"></b></p>
@@ -107,7 +108,7 @@ flex-wrap: wrap;
 <p onclick="window.location.assign('past.html');" style="margin-top:100px;">返回旧版</p>
 <p onclick="localStorage.clear();location.reload()"  id="roo_p_b">清理数据</p>
 </div>
-<footer style="color:black;position: absolute;bottom:0px;left:-5px;width:215px;"><p style="white-space: pre-wrap;font-size:0.8em;color:rgb(0%, 0%, 0%,60%);text-align:center;"><a href="JavaScript:newo()" style="color:rgb(0%, 0%, 0%,60%);text-decoration:none;border-right-style:solid;border-width:1px;padding-right:10px;border-color:rgb(0%, 0%, 0%,15%);"><img src="new.svg" style="width:16px;vertical-align:text-top;"> 更新日志</a><a href="https://github.com/mykonshshhdhdhdh/ki" style="height:18px;color:rgb(0%, 0%, 0%,60%);text-decoration:none;padding-left:10px;"><img src="5.svg" style="width:18px;vertical-align:text-top;"> GitHub</a></p>
+<footer style="color:black;position: absolute;bottom:0px;left:-5px;width:215px;"><p style="white-space: pre-wrap;font-size:0.8em;color:rgb(0%, 0%, 0%,60%);text-align:center;"><a href="JavaScript:newo()" style="color:rgb(0%, 0%, 0%,60%);text-decoration:none;border-right-style:solid;border-width:1px;padding-right:10px;border-color:rgb(0%, 0%, 0%,15%);"><img src="new.svg" style="width:16px;vertical-align:text-top;"> 更新日志</a><a href="https://github.com/mykonshshhdhdhdh/Ki" style="height:18px;color:rgb(0%, 0%, 0%,60%);text-decoration:none;padding-left:10px;"><img src="5.svg" style="width:18px;vertical-align:text-top;"> GitHub</a></p>
 </footer>
 </div>
 
@@ -154,12 +155,17 @@ width:80px;">
 <div onclick="starscno()">取消</div>
 <div onclick="starscdon()">保存</div>
 </div>
-
 </div>
 <div id="starsq">
 <p onclick="starscyes()">删除</p>
 <p onclick="starsc()">编辑</p>
 </div>
+
+<div id="warn_black" onclick="warnno()"></div>
+<div id="warn">
+  <p id="warn_p">这是内想你继续继续康复科v卡存储卡VKV看看vkk据绿绿绿绿看容</p>
+</div>
+
 <script src="new.js"></script>
 <script src="ki.js"></script>
 </body>

@@ -1,5 +1,10 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
+<p>2023.12.30</p>
+<p><span class="newgn">功能</span>添加了提示按钮
+<br><span class="newbug">改进</span>修改了查看'更新日志'会跳转到#的漏洞
+</p>
+
 <p>2023.12.22</p>
 <p><span class="newgn">功能</span>添加了计算功能</p>
 <p>2023.12.16</p>

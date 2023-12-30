@@ -202,7 +202,14 @@ color:black;
 margin-left:10px;
 font-size:0.9em;
 margin-top:15px;
+
 }
+#roo_img_div img {
+height: 1.2em;
+Float:right;
+margin-right: 10px;
+}
+
 #roo_div p:hover {
 color:rgb(0%, 0%, 0%,35%);
 }
@@ -520,6 +527,7 @@ display:flex;
 flex-direction:column;
 align-items:center;
 z-index: 21;
+font-size:0.8em;
 }
 #tcp {
 width:220px;
@@ -532,6 +540,9 @@ overflow:hidden;
 color:#FAFFBC;
 text-align:center;
 line-height: 33px;
+display:flex;
+align-items:center;
+justify-content: center;
 }
 #picture {
 position:fixed;
@@ -659,4 +670,32 @@ margin-right:2px;
 display:none;
 outline:none;
 border-style:none;
+}
+#warn_black {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background:rgb(0%,0%,0%,50%);
+  z-index: 9;
+  display: none;
+}
+#warn {
+ position: fixed;
+ top: 50%;
+ left:50%;
+ transform: translate(-50%,-50%);
+width:250px;
+  background:white;
+  z-index: 9;
+  border-radius:10px;
+  display: none;
+  margin-top: 50vh;
+}
+#warn_p {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #AAAAAA;
+  
 }
