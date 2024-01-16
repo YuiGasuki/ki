@@ -4,6 +4,8 @@ html {
 * {
 outline:none;
 }
+*::-webkit-scrollbar{ display:none; 
+}
 ::selection {
 color:#FAFFBC;
 background-color:#DB000A;
