@@ -1,5 +1,8 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
+<p>2023.1.16</p>
+<p><span class="newbug">改进</span>改进了搜索历史点击后又产生新记录的问题<br><span class="newmh">美化</span>搜索清空使用SVG，而不是原来的字符
+</p>
 <p>2023.12.30</p>
 <p><span class="newgn">功能</span>添加了提示按钮
 <br><span class="newbug">改进</span>修改了查看'更新日志'会跳转到#的漏洞
