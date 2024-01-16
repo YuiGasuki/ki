@@ -84,13 +84,17 @@ border-width:2px;
 background:white;
 margin-left:-1px;
 }
+
 #div_ipt_p {
 position:absolute;
-left:180px;
-top:10px;
-height:42px;
-margin-top:0px;border-width:2px;color:#AAAAAA;
-width:30px;
+left:179px;
+top:17px;
+margin-top:0px;
+border-width:2px;
+width:12px;
+filter:contrast(0%);
+-webkit-filter:contrast(0%);
+visibility:hidden;
 }
 #div_ipt_i {
 position:absolute;
@@ -691,7 +695,6 @@ width:250px;
   z-index: 9;
   border-radius:10px;
   display: none;
-  margin-top: 50vh;
 }
 #warn_p {
   margin-left: 8px;

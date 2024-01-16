@@ -447,11 +447,11 @@ if(document.getElementById('div_ipt').value.trim()==""){
 document.title="\u200E";
 ul.innerHTML="";
 document.getElementById("div_ul").style.display="none";
-document.getElementById("div_ipt_p").innerHTML="";
+document.getElementById("div_ipt_p").style.visibility="hidden";
 }else{
 document.getElementById("div_ul").style.display="list-item";
 document.title=document.getElementById('div_ipt').value;
-document.getElementById("div_ipt_p").innerHTML="×";
+document.getElementById("div_ipt_p").style.visibility="visible";
 var text=document.getElementById('div_ipt').value;
 let textno = text.split(" ");
 if(textno.length > 2){
@@ -608,9 +608,9 @@ idpicb.style.display="inline";
 }
 picno();
 function iptno(){
-if(document.getElementById("div_ipt_p").innerHTML==""){document.getElementById('div_ipt').focus();}else{
-document.getElementById("div_ipt_p").innerHTML="";
+if(document.getElementById('div_ipt').value==""){document.getElementById('div_ipt').focus();}else{
 document.getElementById('div_ipt').value="";
+document.getElementById("div_ipt_p").style.visibility="hidden";
 document.getElementById("div_ul").style.display="none";
 document.title="\u200E";
 }
@@ -645,7 +645,7 @@ window.location.assign(way+texta)
 function dino(){
 document.getElementById('div_ipt').value=document.getElementById('di_ipt_p').innerText;
 if(document.getElementById('di_ipt_p').innerText.trim()!=""){
-document.getElementById("div_ipt_p").innerHTML="×";
+document.getElementById("div_ipt_p").style.visibility="visible";
 tss();
 }
 setTimeout(function(){
@@ -744,6 +744,7 @@ document.getElementById("myInput").value=resultg;
 }
     break;
 }
+
 }
 
 

@@ -109,7 +109,7 @@ color:#eee;
 <body>
 
 <div class="head">
-<img src="hi_1.svg" height="25" class="head_im" onclick="JavaScript:window.history.back();">
+<img src="hi_1.svg" height="25" class="head_im" onclick="JavaScript:history.go(-1)">
 <p class="head_p">搜索记录</p>
 <img src="1.svg" height="30" class="head_imb" onclick="rooon()">
 </div>
@@ -156,16 +156,20 @@ document.getElementById("botxt").innerHTML=`<p class="botxt_p">没有搜索记�
 }else{
 document.getElementById("botxt").innerHTML="";
 for(var i=1;i<=t[0];i++){
-document.getElementById("botxt").innerHTML+=`<p class="botxt_P" onclick="lookFor(this)">`+t[i]+`</p><img style="Float:right;margin-right:5vw;margin-top:-15px;z-index:2;" src="hi_2.svg" onclick="nob(`+i+`)">`;
+document.getElementById("botxt").innerHTML+=`<p class="botxt_P" onclick="lookFor(this,`+i+`)">`+t[i]+`</p><img style="Float:right;margin-right:5vw;margin-top:-15px;z-index:2;" src="hi_2.svg" onclick="nob(`+i+`)">`;
 }
 }
 }
 }
-function lookFor(p){
+function lookFor(p,pi){
+let ta=JSON.parse(localStorage.hi);
+ta.splice(pi,1);
+ta[0]=ta[0]-1;
+localStorage.hi=JSON.stringify(ta);
 window.open("index.html?p="+p.innerHTML);
 }
 function nob(o){
-var ta=JSON.parse(localStorage.hi);
+let ta=JSON.parse(localStorage.hi);
 ta.splice(o,1);
 ta[0]=ta[0]-1;
 
