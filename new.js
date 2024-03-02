@@ -1,6 +1,9 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
-<p>2023.1.16</p>
+<p>2024.3.2</p>
+<p><span class="newgn">功能</span>增加必应和360的搜索提示，其他搜索方式仍使用百度搜索提示
+</p>
+<p>2024.1.16</p>
 <p><span class="newbug">改进</span>改进了搜索历史点击后又产生新记录的问题<br><span class="newmh">美化</span>搜索清空使用SVG，而不是原来的字符
 </p>
 <p>2023.12.30</p>

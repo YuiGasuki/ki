@@ -67,6 +67,9 @@ var sizeb = 0;
 
   document.getElementById("roo_p_b").innerHTML=`清理数据<span style="color:rgb(0%, 0%, 0%,35%);Float:right;margin-right:5vw;">`+(sizeb / 1024).toFixed(2) + "KB</span>";
 }
+window.onstorage = function () {
+roopb()
+}
 var way;
 var starimq=document.getElementById('star_im');
 var starscimq=document.getElementById('starsc_im');
@@ -197,7 +200,7 @@ document.getElementById("starsc_im_p").innerHTML=document.getElementById("starsc
   }
   }
 if(localStorage.way==undefined){
-way='https://m.baidu.com/s?from=1022282z&word=';
+way='https://m.baidu.com/s?word=';
 }else{
 way=localStorage.way;
 }
@@ -345,7 +348,7 @@ document.getElementById('zd_ipt').value=way;
 function xway(ways,wayj){
 way=ways;
 var a=document.getElementById("div_di_ul").getElementsByTagName("li");
-for(var i=0;i<8;i++){
+for(var i=0;i<=8;i++){
 a[i].style.background="white";
 a[i].style.color="black";
 }
@@ -391,8 +394,12 @@ divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "0";
 zddi.style.transition = "0.3s";zddi.style.opacity = "0";
 }
 function zdyes(zdj){
+if(document.getElementById('zd_ipt').value.startsWith("https://")==false&document.getElementById('zd_ipt').value.startsWith("http://")==false){
+tsc("!","请输入正确的链接");
+return
+}
 var a=document.getElementById("div_di_ul").getElementsByTagName("li");
-for(var i=0;i<8;i++){
+for(var i=0;i<=8;i++){
 a[i].style.background="white";
 a[i].style.color="black";
 }
@@ -435,14 +442,11 @@ divdi.style.display="inline";
 }
 
 var ul=document.getElementById("div_ul");
-var url1 ='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=';
-var url2='&cb=';
+
 
 function tss(){
 ul.innerHTML="";
-var script=document.createElement("script");
-script.src=url1+document.getElementById('div_ipt').value+url2+'Search_Data';
-document.body.appendChild(script);
+Search_Data(localStorage.wayj,document.getElementById('div_ipt').value)
 if(document.getElementById('div_ipt').value.trim()==""){
 document.title="\u200E";
 ul.innerHTML="";
@@ -474,14 +478,7 @@ function b(){
 document.getElementById("div_ul").style.display="none";
 
 }
-function Search_Data(data){
-var arr=data.s;
 
-
-for(var i=0;i < arr.length;i++){
-ul.innerHTML+=`<li onclick="lia('`+arr[i]+`')">`+arr[i]+`<li>`;
-}
-}
 function lia(l){
 document.getElementById('div_ipt').value=l;
 feel();
