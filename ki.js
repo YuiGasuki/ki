@@ -764,6 +764,19 @@ tsc("✿","复制成功");
    e.clearSelection();
 }).on('error', function(e) {
 });
+
+
+new ClipboardJS('#a', {
+    text: function(trigger) {
+        return document.getElementById("myInput").value;
+    }
+}).on('success', function(e) {
+tsc("✿","复制成功");
+   e.clearSelection();
+}).on('error', function(e) {
+});
+
+
   var idwarnBlack = document.getElementById('warn_black');
   var idwarn = document.getElementById('warn');
   
@@ -787,3 +800,59 @@ idwarnBlack.style.display="inline";
 idwarn.style.display="inline";
 }
 warnno();
+
+
+
+
+
+/*这是扫描输入内容，进行分析
+  document.getElementById('di_ipt_p').innerText是获取输入内容
+*/
+const scanInput =()=>{
+let inputText = document.getElementById('di_ipt_p').innerText;//需处理字符串
+if(!/http/.test(inputText)){
+return
+}
+
+let returnText='';//储存结果字符串
+let returnEndText='';
+
+let AfterFirst=inputText.match(/http(\S*)/g);
+
+AfterFirst.forEach(data =>{
+
+returnEndText += inputText.split(data)[0]+`<a onclick="window.open('`+data+`')" contenteditable="false">`+data+`</a>`;
+if(inputText.split(data)[1]){
+returnText = returnEndText+inputText.split(data)[1];
+inputText = inputText.split(data)[1];
+
+}else{
+returnText = returnEndText;
+}
+
+})
+
+
+if(/提取码：/.test(returnText)){
+let BreturnText='';//储存结果字符串
+let BreturnEndText='';
+let BAfterFirst=returnText.match(/提取码：(\S*)/);
+data=BAfterFirst[0];
+BreturnEndText += returnText.split(data)[0]+`提取码：<a contenteditable="false" id="a" onclick="document.getElementById('myInput').value=this.innerText">`+data.replace('提取码：','')+`</a>`;
+if(returnText.split(data)[1]){
+BreturnText = BreturnEndText+returnText.split(data)[1];
+returnText = returnText.split(data)[1];
+}else{
+BreturnText = BreturnEndText;
+}
+document.getElementById('di_ipt_p').innerHTML=BreturnText;
+}else{
+
+document.getElementById('di_ipt_p').innerHTML=returnText;
+}
+
+
+
+
+
+}
