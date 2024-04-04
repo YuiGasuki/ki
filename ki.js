@@ -1,32 +1,50 @@
 roopb();
-var rootxa=0;
-var rootba=0;
-var rooloa=0;
-var idtx=document.getElementById('tc');
+let rootxa=0,rootba=0,rooloa=0,rootxba=false;
+const idtx=document.getElementById('tc');
 if(localStorage.hion==undefined){
 localStorage.hion=1;
 }
-function tsc(tsca,tscb){
+function tsc(tsca,tscb,time){
 
 setTimeout(function(){
 idtx.style.transition = "0.3s";idtx.style.marginTop = "-96px";
-},3000);
+},time);
 
 setTimeout(function(){
 idtx.style.transition = "0.3s";idtx.style.marginTop = "96px";
 document.getElementById("tcp").innerHTML=`<spen style="margin-right:10px;margin-left:-10px;">`+tsca+`</spen>`+tscb;
 },100);
 }
-if(localStorage.tx==undefined){
-tsc("✿","欢迎!祝你使用愉快_");
+if(localStorage.tx==undefined||localStorage.tx==1){
+tsc("✿","欢迎!祝你使用愉快_",3000);
+document.getElementById("rootx_bc").style.background="#eee";
 }else{
-if(localStorage.tx==1){
-tsc("✿","欢迎!祝你使用愉快_");
+if(localStorage.tx==2){
+GetOldPoems().then(data=>{
+tsc("✿",data,5000);
+rootxba=true;
+document.getElementById("rootx_bc").style.background="#DB000A";
+document.getElementById("rootx_b").style.background="#eee";
+rootxa=1;
+});
 }else{
 document.getElementById("rootx_b").style.background="#eee";
 rootxa=1;
 }
 }
+
+async function GetOldPoems(){
+let Data = await fetch('https://api.apiopen.top/api/sentences',{method: 'GET'}).then((res)=>{
+if (res.ok) {
+return res.text()
+}
+}).then(data =>{
+return data;
+})
+return JSON.parse(Data).result.name
+}
+
+
 if(localStorage.lo==undefined){
 
 }else{
@@ -118,6 +136,16 @@ document.getElementById("star_im_p").style.display="flex";
 starimn=0;
 }
 
+function rootxb(){
+if(rootxba==false){
+document.getElementById("rootx_bc").style.background="#DB000A";
+document.getElementById("rootx_b").style.background="#eee";
+localStorage.tx=2;
+}else{
+document.getElementById("rootx_bc").style.background="#eee";
+localStorage.tx=0;
+}
+}
 function rootx(){
 rootxa=rootxa+1;
 if(rootxa==2){
@@ -129,6 +157,7 @@ localStorage.tx=0;
 }
 if(rootxa==0){
 document.getElementById("rootx_b").style.background="#DB000A";
+document.getElementById("rootx_bc").style.background="#eee";
 localStorage.tx=1;
 }
 }
@@ -395,7 +424,7 @@ zddi.style.transition = "0.3s";zddi.style.opacity = "0";
 }
 function zdyes(zdj){
 if(document.getElementById('zd_ipt').value.startsWith("https://")==false&document.getElementById('zd_ipt').value.startsWith("http://")==false){
-tsc("!","请输入正确的链接");
+tsc("!","请输入正确的链接",3000);
 return
 }
 var a=document.getElementById("div_di_ul").getElementsByTagName("li");
@@ -497,7 +526,7 @@ function feel(){
 var text=document.getElementById('div_ipt').value;
 if(text.trim()==""){
 document.title="\u200E";
-tsc("!","输入不能为空");
+tsc("!","输入不能为空",3000);
 }else{
 document.title=text;
 if(localStorage.hion==0){
@@ -632,7 +661,7 @@ function tssa(){
 let texta=document.getElementById('di_ipt_p').innerText;
 if(texta.trim()==""){
 document.title="\u200E";
-tsc("!","输入不能为空");
+tsc("!","输入不能为空",3000);
 }else{
 document.title=texta;
 if(localStorage.hion==0){
@@ -760,7 +789,7 @@ new ClipboardJS('#math_p', {
         return document.getElementById("myInput").value;
     }
 }).on('success', function(e) {
-tsc("✿","复制成功");
+tsc("✿","复制成功",3000);
    e.clearSelection();
 }).on('error', function(e) {
 });
@@ -771,7 +800,7 @@ new ClipboardJS('#a', {
         return document.getElementById("myInput").value;
     }
 }).on('success', function(e) {
-tsc("✿","复制成功");
+tsc("✿","复制成功",3000);
    e.clearSelection();
 }).on('error', function(e) {
 });

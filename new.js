@@ -1,5 +1,8 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
+<p>2024.4.3</p>
+<p><span class="newgn">功能</span>增加随机故事<br>增加识别网址功能
+</p>
 <p>2024.3.31</p>
 <p><span class="newgn">功能</span>增加翻译功能
 <br><span class="newmh">美化</span>增加下划线动画<br>修改字体，统一为Arial;
