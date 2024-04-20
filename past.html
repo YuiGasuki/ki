@@ -759,7 +759,11 @@ var wayx;
 if(localStorage.wayj==undefined){
 wayx=1;
 }else{
+if(localStorage.wayj>7){
+wayx=1;
+}else{
 wayx=localStorage.wayj;
+}
 }
 function staryes(){
 if(document.getElementById("star_int_u").value.trim()==""){

@@ -70,10 +70,11 @@ flex-wrap: wrap;
 </div>
 <div id="div_di_zd">
 <p>自定义</p>
-<input type="text" id="zd_ipt" >
+<input type="name" id="zd_ipt_n" placeholder="标题"/>
+<input type="text" id="zd_ipt" placeholder="地址"/>
 <div id="zd_di">
 <div onclick="zdno()">取消</div>
-<div onclick="zdyes(0)">确定</div>
+<div onclick="zdyes(0)">添加</div>
 </div>
 </div>
 <div id="div_di">
@@ -88,6 +89,7 @@ flex-wrap: wrap;
 <li onclick="xway('https://so.toutiao.com/search?keyword=',6)">头条</li>
 <li onclick="xway('https://quark.sm.cn/s?q=',7)">夸克</li>
 <li onclick="xway('https://zh.moegirl.org.cn/index.php?search=',8)">萌百</li>
+
 </ul>
 </div>
 <div id="roo_bas" onclick="roo()"></div>
@@ -115,7 +117,7 @@ flex-wrap: wrap;
 <p onclick="window.location.assign('past.html');" style="margin-top:100px;">返回旧版</p>
 <p onclick="localStorage.clear();location.reload()"  id="roo_p_b">清理数据</p>
 </div>
-<footer style="color:black;position:absolute;bottom:0px;left:-5px;width:215px;"><p style="white-space: pre-wrap;font-size:0.8em;color:rgb(0%, 0%, 0%,60%);text-align:center;"><a href="JavaScript:newo()" style="color:rgb(0%, 0%, 0%,60%);text-decoration:none;border-right-style:solid;border-width:1px;padding-right:10px;border-color:rgb(0%, 0%, 0%,15%);"><img src="new.svg" style="width:16px;vertical-align:text-top;"> 更新日志</a><a href="https://github.com/mykonshshhdhdhdh/Ki" style="height:18px;color:rgb(0%, 0%, 0%,60%);text-decoration:none;padding-left:10px;"><img src="5.svg" style="width:18px;vertical-align:text-top;"> GitHub</a></p>
+<footer style="color:black;position:absolute;bottom:0px;left:-5px;width:215px;"><p style="white-space: pre-wrap;font-size:0.8em;color:rgb(0%, 0%, 0%,60%);text-align:center;"><a href="JavaScript:newo()" style="color:rgb(0%, 0%, 0%,60%);text-decoration:none;border-right-style:solid;border-width:1px;padding-right:10px;border-color:rgb(0%, 0%, 0%,15%);"><img src="new.svg" style="width:16px;vertical-align:text-bottom;"> 更新日志</a><a href="https://github.com/YuiandAzucat/ki" style="height:18px;color:rgb(0%, 0%, 0%,60%);text-decoration:none;padding-left:10px;"><img src="5.svg" style="width:18px;vertical-align:text-bottom;"> GitHub</a></p>
 </footer>
 </div>
 
@@ -143,6 +145,12 @@ width:80px;">
 <p style="margin-left:10px;margin-top:10px;"><b>修改背景</b></p>
 <input type="text" id="pic_u" placeholder="图片URL" onkeyup="picu(1)">
 <input type="text" id="pic_ub" placeholder="颜色" onkeyup="picu(2)">
+<p id="downloadP"><img src="downloadfile.svg" id="downloadfile" />选择文件</p>
+<input type="file" id="files">
+<img src="" id="IMG">
+<canvas id="myCanvas">
+</canvas>
+<button id="downloadbutton">确定</button>
 </div>
 <div id="starsc_b" onclick="starscno()"></div>
 <div id="starsc">

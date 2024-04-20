@@ -4,13 +4,25 @@ const idtx=document.getElementById('tc');
 if(localStorage.hion==undefined){
 localStorage.hion=1;
 }
-function tsc(tsca,tscb,time){
 
-setTimeout(function(){
+let wayk=[];
+if(localStorage.wayk!=undefined){
+wayk = JSON.parse(localStorage.wayk);
+
+
+for(let i=0;i<wayk.length;i++){
+document.getElementById("div_di_ul").innerHTML+= `<li><div onclick="xway('`+wayk[i].url+`',`+wayk[i].id+`)">`+wayk[i].title+`</div><img class="Search_delete" onclick="SearchDelete(`+i+`,this)" src="hi_2.svg"></li>`;
+}
+}
+
+let tsctime = null,tsctim = null;
+function tsc(tsca,tscb,time){
+clearTimeout(tsctime);
+clearTimeout(tsctim);
+tsctime = setTimeout(function(){
 idtx.style.transition = "0.3s";idtx.style.marginTop = "-96px";
 },time);
-
-setTimeout(function(){
+tsctim = setTimeout(function(){
 idtx.style.transition = "0.3s";idtx.style.marginTop = "96px";
 document.getElementById("tcp").innerHTML=`<spen style="margin-right:10px;margin-left:-10px;">`+tsca+`</spen>`+tscb;
 },100);
@@ -45,6 +57,11 @@ return JSON.parse(Data).result.name
 }
 
 
+
+
+
+
+
 if(localStorage.lo==undefined){
 
 }else{
@@ -62,12 +79,14 @@ document.getElementById("yue_black").style.display= "inline";
 document.getElementById("div_ipt").style.background= "#2B2B2B";
 document.getElementById("div_ul").style.background= "#2B2B2B";
 document.getElementById("div_ipt_di").style.background= "#2B2B2B";
-document.getElementById("di_ipt").style.background="#cccccc";
+document.getElementById("di_ipt").style.background="#2B2B2B";
+document.getElementById('di_ipt_p').style.color="#AAAAAA";
 rootba=1;
 }else{
 document.getElementById("roobl_b").style.background="#eee";
 document.body.style.background= "white";
 document.getElementById("div_ipt").style.background= "white";
+document.getElementById('di_ipt_p').style.color="black";
 document.getElementById("div_ipt_di").style.background= "white";
 document.getElementById("yue_black").style.display= "none";
 document.getElementById("div_ul").style.background= "white";
@@ -141,9 +160,11 @@ if(rootxba==false){
 document.getElementById("rootx_bc").style.background="#DB000A";
 document.getElementById("rootx_b").style.background="#eee";
 localStorage.tx=2;
+rootxba=true;
 }else{
 document.getElementById("rootx_bc").style.background="#eee";
 localStorage.tx=0;
+rootxba=false;
 }
 }
 function rootx(){
@@ -169,6 +190,8 @@ rootba=0;
 if(rootba==0){
 document.getElementById("roobl_b").style.background="#eee";
 document.body.style.background= "white";
+document.getElementById('di_ipt_p').style.color="black";
+
 document.getElementById("div_ipt").style.background= "white";
 document.getElementById("yue_black").style.display= "none";
 document.getElementById("div_ul").style.background= "white";
@@ -178,7 +201,8 @@ localStorage.bl=0;
 }
 if(rootba==1){
 document.getElementById("roobl_b").style.background="#DB000A";
-document.getElementById("di_ipt").style.background="#cccccc";
+document.getElementById("di_ipt").style.background="#2B2B2B";
+document.getElementById('di_ipt_p').style.color="#AAAAAA";
 document.body.style.background= "#2B2B2B";
 document.getElementById("div_ipt").style.background= "#2B2B2B";
 document.getElementById("div_ipt_di").style.background= "#2B2B2B";
@@ -373,11 +397,11 @@ var a=document.getElementById("div_di_ul").getElementsByTagName("li");
 a[wayx].style.background="#DB000A";
 a[wayx].style.color="white";
 
-document.getElementById('zd_ipt').value=way;
 function xway(ways,wayj){
 way=ways;
-var a=document.getElementById("div_di_ul").getElementsByTagName("li");
-for(var i=0;i<=8;i++){
+const a=document.getElementById("div_di_ul").getElementsByTagName("li");
+
+for(var i=0;i<a.length;i++){
 a[i].style.background="white";
 a[i].style.color="black";
 }
@@ -385,9 +409,8 @@ a[wayj].style.background="#DB000A";
 a[wayj].style.color="white";
 localStorage.setItem("way",way);
 localStorage.setItem("wayj",wayj);
-
 setTimeout(function(){
-xlway();},200)
+xlway();},200);
 }
 var divdidiv=document.getElementById("div_di_div");
 var divdi=document.getElementById("div_di");
@@ -422,25 +445,58 @@ zddi.style.transition = "0.3s";zddi.style.marginTop = "5vh";
 divdidiv.style.transition = "0.3s";divdidiv.style.opacity = "0";
 zddi.style.transition = "0.3s";zddi.style.opacity = "0";
 }
+
+
 function zdyes(zdj){
-if(document.getElementById('zd_ipt').value.startsWith("https://")==false&document.getElementById('zd_ipt').value.startsWith("http://")==false){
+if(document.getElementById('zd_ipt').value.search(/[<>;,\[\]{}]/g)!=-1||document.getElementById('zd_ipt_n').value.search(/[<>{};,\[\]]/g)!=-1){
+tsc("!","不可输入特殊字符",3000);
+return
+}
+if(document.getElementById('zd_ipt').value.startsWith("https://")==false&&document.getElementById('zd_ipt').value.startsWith("http://")==false){
 tsc("!","请输入正确的链接",3000);
 return
 }
-var a=document.getElementById("div_di_ul").getElementsByTagName("li");
-for(var i=0;i<=8;i++){
+if(document.getElementById('zd_ipt').value.trim()==""&&document.getElementById('zd_ipt_n').value.trim()==""){
+tsc("!","输入不能为空",3000);
+return
+}
+const a=document.getElementById("div_di_ul").getElementsByTagName("li");
+for(var i=0;i<a.length;i++){
 a[i].style.background="white";
 a[i].style.color="black";
 }
-a[0].style.background="#DB000A";
-a[0].style.color="white";
-localStorage.setItem("wayj",zdj);
+let j = a.length;
+let waykl = wayk.length;
+wayk.push({
+"id":j,"url":document.getElementById('zd_ipt').value,"title":document.getElementById('zd_ipt_n').value});
+document.getElementById("div_di_ul").innerHTML += `<li><div onclick="xway('`+document.getElementById('zd_ipt').value+`',`+j+`)">`+document.getElementById('zd_ipt_n').value+`</div><img class="Search_delete" onclick="SearchDelete(`+waykl+`,this)" src="hi_2.svg"></li>`;
 
-zdno();
+const b=document.getElementById("div_di_ul").getElementsByTagName("li");
+b[b.length-1].style.background="#DB000A";
+b[b.length-1].style.color="white";
+localStorage.setItem("wayk",JSON.stringify(wayk));
+localStorage.setItem("wayj",j);
+localStorage.setItem("way",document.getElementById('zd_ipt').value);
 way=document.getElementById('zd_ipt').value;
-localStorage.setItem("way",way);
-
+document.getElementById('zd_ipt').value='';
+document.getElementById('zd_ipt_n').value='';
+zdno();
 }
+
+
+function SearchDelete(id,e){
+wayk.splice(id,1);
+if(JSON.stringify(wayk)==="[]"){
+localStorage.removeItem("wayk");
+}else{
+localStorage.setItem("wayk",JSON.stringify(wayk));
+}
+
+roopb();
+e.parentNode.remove();
+xway('https://m.baidu.com/s?word=',1);
+}
+
 function zdb(){
 setTimeout(function(){
 zddi.style.transition = "0.3s";zddi.style.marginTop = "0vh";
@@ -593,6 +649,7 @@ idstarsq.style.transition = "0.3s";idstarsq.style.opacity = "0";
 }
 if(localStorage.pica!=undefined){
 document.getElementById('picture').style.background=`url('`+localStorage.pica+`')`;
+document.getElementById('picture').style.filter="brightness(70%)";
 document.getElementById('picture').style.backgroundSize="cover";
 document.getElementById('picture').style.backgroundRepeat="no-repeat";
 document.getElementById('picture').style.backgroundPosition="center";
@@ -600,25 +657,30 @@ document.getElementById('pic_u').value=localStorage.pica;
 }
 if(localStorage.picb!=undefined){
 document.getElementById('picture').style.background=localStorage.picb;
+document.getElementById('picture').style.filter="brightness(100%)";
 document.getElementById('pic_ub').value=localStorage.picb;
 }
 function picu(picua){
 if(picua===1){
 document.getElementById('picture').style.background=`url('`+document.getElementById('pic_u').value+`')`;
+document.getElementById('picture').style.filter="brightness(70%)";
 document.getElementById('picture').style.backgroundRepeat="no-repeat";
 document.getElementById('picture').style.backgroundSize="cover"; 
 document.getElementById('picture').style.backgroundPosition="center";
 
 localStorage.pica=document.getElementById('pic_u').value;
 localStorage.picb="";
+localStorage.picc="";
 localStorage.removeItem("picb");
 }else{
 document.getElementById('picture').style.background=document.getElementById('pic_ub').value;
 localStorage.picb=document.getElementById('pic_ub').value;
+document.getElementById('picture').style.filter="brightness(100%)";
 localStorage.pica="";
 localStorage.removeItem("pica");
+localStorage.picc="";
 }
-
+roopb();
 }
 var idpic=document.getElementById('pic');
 var idpicb=document.getElementById('pic_b');
@@ -884,4 +946,54 @@ document.getElementById('di_ipt_p').innerHTML=returnText;
 
 
 
+}
+
+
+
+
+
+const Files = document.getElementById('files');
+const IMG = document.getElementById('IMG');
+const downloadbutton = document.getElementById('downloadbutton');
+const downloadP = document.getElementById('downloadP');
+const canv=document.getElementById("myCanvas");
+Files.onchange = function (){
+if(this.files[0]){
+downloadP.innerHTML = `<img src="downloadfile.svg" id="downloadfile" />重新选择<br>`+this.value.split('\\')[this.value.split(`\\`).length-1];
+IMG.src=URL.createObjectURL(this.files[0]);
+IMG.onload = function () {
+canv.style.display = "inline";
+downloadbutton.style.display = "inline";
+canv.width=screen.width;
+canv.height=screen.height;
+let ctx = canv.getContext("2d");
+let a = IMG.naturalHeight / screen.height;
+ctx.drawImage(IMG,(IMG.naturalWidth/2)-((screen.width*a)/2),0,screen.width*a,IMG.naturalHeight,0,0,screen.width,screen.height);
+}
+}
+}
+if(localStorage.picc!=undefined){
+document.getElementById('picture').style.background=`url('`+localStorage.picc+`')`;
+document.getElementById('picture').style.filter="brightness(70%)";
+document.getElementById('picture').style.backgroundSize="cover";
+document.getElementById('picture').style.backgroundRepeat="no-repeat";
+document.getElementById('picture').style.backgroundPosition="center";
+}
+
+downloadbutton.onclick = function (){
+localStorage.picc=canv.toDataURL('image/jgp');
+document.getElementById('picture').style.background=`url('`+localStorage.picc+`')`;     
+document.getElementById('picture').style.filter="brightness(70%)";
+document.getElementById('picture').style.backgroundSize="cover";
+document.getElementById('picture').style.backgroundRepeat="no-repeat";
+document.getElementById('picture').style.backgroundPosition="center";
+localStorage.pica="";
+localStorage.picb="";
+roopb();
+let ctx = canv.getContext("2d");
+ctx.clearRect(0,0,canv.width,canv.height);
+canv.style.display = "none";
+downloadbutton.style.display = "none";
+downloadP.innerHTML = `<img src="downloadfile.svg" id="downloadfile" />选择文件`;
+tsc("✎...","背景修改成功",3000);
 }

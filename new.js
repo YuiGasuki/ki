@@ -1,7 +1,10 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
+<p>2024.4.20</p>
+<p><span class="newgn">功能</span>支持添加多个自定义搜索引擎<br>支持本地图片背景(图片数据储存在缓存里)<br><span class="newbug">改进</span>修改了已知bug
+</p>
 <p>2024.4.3</p>
-<p><span class="newgn">功能</span>增加随机故事<br>增加识别网址功能
+<p><span class="newgn">功能</span>增加随机古诗<br>增加识别网址功能
 </p>
 <p>2024.3.31</p>
 <p><span class="newgn">功能</span>增加翻译功能

@@ -106,8 +106,6 @@ top:17px;
 margin-top:0px;
 border-width:2px;
 width:12px;
-filter:contrast(0%);
--webkit-filter:contrast(0%);
 visibility:hidden;
 }
 #div_ipt_i {
@@ -287,17 +285,34 @@ padding-top:12px;
 padding-bottom:12px;
 width:237px;
 transition:0.5s;
+overflow:hidden;
+}
+#div_di ul li div {
+white-space:nowrap;
+width:195px;
+position:absolute;
+overflow:hidden;
 }
 #div_di ul li:hover {
 background:#DB000A;
 color:white;
+
+
+}
+.Search_delete {
+Float:right;
+margin-right:8px;
+margin-top:1px;
+z-index:2;
+width:18px;
+
 }
 #div_di_zd {
 position:fixed;
 top:calc(50vh - 95px);
 left:calc(50vw - 120px);
 width:240px;
-height:190px;
+height:210px;
 background:white;
 border-radius:25px;
 overflow:auto;
@@ -310,8 +325,9 @@ margin-top:16px;
 font-size:1.2em;
 }
 #div_di_zd input {
-width:100%;
-height:64px;
+width:calc(100% - 32px);
+margin-left:16px;
+margin-top:16px;
 border-style:none;
 border-bottom-style:solid;
 border-bottom-width:1px;
@@ -410,12 +426,12 @@ color:#FAFFBC;
 object-fit:cover;
 width:65px;
 height:65px;
+background:var(--back);
 border-style:solid;
 border-width:1px;
 border-color:#7F7F7F;
 border-radius:80px;
 margin-bottom:18px;
-
 }
 .starb_n {
 font-size:0.8rem;
@@ -425,7 +441,14 @@ text-overflow: ellipsis;
 width:67px;
 text-align:center;
 overflow :hidden;
-color:#AAAAAA;
+color:white;
+text-shadow:
+0 0.5px black,
+0 -0.5px black,
+-0.5px 0.5px black,
+0.5px 0.5px black,
+-0.5px 0 black,
+0.5px 0 black;
 }
 /*.starb_n:hover {
 text-overflow: clip;
@@ -552,6 +575,7 @@ flex-direction:column;
 align-items:center;
 z-index: 21;
 font-size:0.8rem;
+pointer-events: none;
 }
 #tcp {
 padding-left:20px;
@@ -593,10 +617,11 @@ display:none;
 }
 #pic {
 position:fixed;
-top:calc(50vh - 60px);
-left:calc(50vw - 125px);
+top:50vh;
+left:50vw;
 width:250px;
-height:120px;
+max-height:95vh;
+transform: translate(-50%,-50%);
 overflow:auto;
 background:white;
 z-index: 4;
@@ -610,7 +635,8 @@ border-bottom-width:1px;
 border-bottom-color:rgb(0%, 0%, 0%,15%);
 font-size:1em;
 overflow:auto;
-width:100%;
+width:calc(100% - 16px);
+margin-left: 8px;
 }
 #yue_black {
 position:fixed;
@@ -620,7 +646,7 @@ width:100vw;
 height:200vh;
 background:black;
 z-index: 22;
-opacity:0.7;
+opacity:0.6;
 display:none;
 pointer-events: none;
 }
@@ -722,4 +748,58 @@ border-style:none;
   margin-right: 8px;
   color: #AAAAAA;
   
+}
+
+#files {
+opacity:0;
+margin-top: 16px;
+width:calc(100% - 32px);
+margin-left: 16px;
+margin-bottom: 16px
+}
+
+#downloadP {
+position:absolute;
+margin-left: 16px;
+margin-top: 16px;
+color: #AAAAAA;
+vertical-align:text-bottom;
+width:calc(100% - 32px);
+overflow:hidden;
+}
+#downloadfile {
+margin-right: 8px;
+margin-bottom: -5px;
+}
+#IMG {
+display:none;
+}
+#myCanvas {
+width:45%;
+margin-left: 50%;
+margin-top: 32px;
+margin-bottom: 16px;
+transform: translate(-50%,0%);
+border-style:solid;
+border-width:1px;
+border-color:rgb(0%, 0%, 0%,15%);
+display:none;
+filter:brightness(70%);
+}
+#downloadbutton {
+display:none;
+width:65px;
+height:30px;
+Float:right;
+background-color:#DB000A;
+border-style:none;
+border-radius:8px;
+color:white;
+overflow:hidden;
+margin-right: 16px;
+margin-bottom: 16px;
+}
+#downloadbutton:active {
+background-color:#860006;
+color:#616161;
 }
