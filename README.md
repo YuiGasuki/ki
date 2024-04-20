@@ -6,4 +6,6 @@ Ki起始页<br>
 缺点：<br>
 代码写得很乱，没有添加注释，由于我是自学，所以很多地方写得不规范，我以后会改善的，谢谢理解！
 
+访问：<a href="https://yuiandazucat.github.io/ki/index.html">Ki起始页</a>          
+
 
