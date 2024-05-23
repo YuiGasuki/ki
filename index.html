@@ -82,14 +82,14 @@ flex-wrap: wrap;
 <ul id="div_di_ul">
 <li onclick="zd()">自定义</li>
 <li onclick="xway('https://m.baidu.com/s?word=',1)">百度</li>
-<li onclick="xway('https://wap.sogou.com/web/sl?keyword=',2)">搜狗</li>
+<li onclick="xway('https://yandex.com/search/touch/?search_source=yacom_touch_common&lr=10519&mda=0&text=',2)">Yandex</li>
 <li onclick="xway('https://cn.bing.com/search?q=',3)">必应</li>
-<li onclick="xway('https://yz.m.sm.cn/s?q=',4)">神马</li>
-<li onclick="xway('https://m.so.com/s?q=',5)">360</li>
-<li onclick="xway('https://so.toutiao.com/search?keyword=',6)">头条</li>
-<li onclick="xway('https://quark.sm.cn/s?q=',7)">夸克</li>
-<li onclick="xway('https://zh.moegirl.org.cn/index.php?search=',8)">萌百</li>
-
+<li onclick="xway('https://wap.sogou.com/web/sl?keyword=',4)">搜狗</li>
+<li onclick="xway('https://yz.m.sm.cn/s?q=',5)">神马</li>
+<li onclick="xway('https://m.so.com/s?q=',6)">360</li>
+<li onclick="xway('https://so.toutiao.com/search?keyword=',7)">头条</li>
+<li onclick="xway('https://quark.sm.cn/s?q=',8)">夸克</li>
+<li onclick="xway('https://zh.moegirl.org.cn/index.php?search=',9)">萌百</li>
 </ul>
 </div>
 <div id="roo_bas" onclick="roo()"></div>
@@ -110,6 +110,7 @@ flex-wrap: wrap;
 <p onclick="picyes()">修改背景</p>
 <img src="6.svg" onclick="fwarn('记录搜索内容。默认为关闭，可按照自己的需求开关，内容储存在本地，所以会占用空间')">
 <p onclick="JavaScript:window.open('history.html')">搜索记录</p>
+<p onclick="leadingIn()">导入/导出搜索引擎</p>
 <p onclick="rootx()">欢迎问候<b id="rootx_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#DB000A;border-style:solid;border-width:1px;"></b></p>
 <p onclick="rootxb()">随机古诗<b id="rootx_bc" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#eee;border-style:solid;border-width:1px;"></b></p>
 <p onclick="roobl()">夜间模式<b id="roobl_b" style="Float:right;margin-right:5vw;width:1.2em;height:1.2em;border-radius:80px;background:#eee;border-style:solid;border-width:1px;"></b></p>
@@ -120,6 +121,15 @@ flex-wrap: wrap;
 <footer style="color:black;position:absolute;bottom:0px;left:-5px;width:215px;"><p style="white-space: pre-wrap;font-size:0.8em;color:rgb(0%, 0%, 0%,60%);text-align:center;"><a href="JavaScript:newo()" style="color:rgb(0%, 0%, 0%,60%);text-decoration:none;border-right-style:solid;border-width:1px;padding-right:10px;border-color:rgb(0%, 0%, 0%,15%);"><img src="new.svg" style="width:16px;vertical-align:text-bottom;"> 更新日志</a><a href="https://github.com/YuiandAzucat/ki" style="height:18px;color:rgb(0%, 0%, 0%,60%);text-decoration:none;padding-left:10px;"><img src="5.svg" style="width:18px;vertical-align:text-bottom;"> GitHub</a></p>
 </footer>
 </div>
+
+<div id="leading_In_b"></div>
+<div id="leading_In">
+<input type="text" id="leading_In_text" placeholder="导入JSON格式数据">
+<button onclick="leadingInget()">导入</button>
+<button onclick="leadingInres()">导出</button>
+<p id="leading_In_p"></p>
+</div>
+
 
 <div id="star_b" onclick="starno()"></div>
 <div id="star">

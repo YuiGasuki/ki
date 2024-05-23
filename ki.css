@@ -58,7 +58,7 @@ font-family:Arial;
 color:#DB000A;
 }
 #div {
-
+    filter: drop-shadow(0px 2px 5px #AAAAAA);
     margin: auto;
     margin-top:6px;
     margin: 0;
@@ -802,4 +802,64 @@ margin-bottom: 16px;
 #downloadbutton:active {
 background-color:#860006;
 color:#616161;
+}
+
+#leading_In {
+position:fixed;
+top:50vh;
+left:50vw;
+width:200px;
+padding-left:8px;
+padding-right:8px;
+padding-top:16px;
+transform: translate(-50%,-50%);
+overflow:hidden;
+background:white;
+z-index: 4;
+border-radius:20px;
+filter: drop-shadow(0px 2px 5px #AAAAAA);
+display:none;
+}
+#leading_In_p {
+font-size:0.8em;
+width:200px;
+color: #AAAAAA;
+word-wrap: break-word;
+margin-top: 46px;
+overflow:auto;
+max-height:50vh;
+}
+#leading_In input {
+border-style:none;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-bottom-color:rgb(0%, 0%, 0%,15%);
+font-size:1em;
+overflow:auto;
+width:calc(100% - 16px);
+margin-left: 8px;
+margin-bottom: 16px;
+}
+#leading_In button {
+width:65px;
+height:30px;
+Float:right;
+background-color:#DB000A;
+border-style:none;
+border-radius:8px;
+color:white;
+overflow:hidden;
+margin-right: 16px;
+margin-bottom: 16px;
+}
+#leading_In_b {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+z-index: 4;
+opacity:0.5;
+display:none;
 }

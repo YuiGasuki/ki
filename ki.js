@@ -9,7 +9,6 @@ let wayk=[];
 if(localStorage.wayk!=undefined){
 wayk = JSON.parse(localStorage.wayk);
 
-
 for(let i=0;i<wayk.length;i++){
 document.getElementById("div_di_ul").innerHTML+= `<li><div onclick="xway('`+wayk[i].url+`',`+wayk[i].id+`)">`+wayk[i].title+`</div><img class="Search_delete" onclick="SearchDelete(`+i+`,this)" src="hi_2.svg"></li>`;
 }
@@ -564,6 +563,8 @@ function Translate(text){
 way = localStorage.wayj;
 if(way==='2'){
 window.location.assign('https://fanyi.sogou.com/text?fr=wapsearch&keyword='+text+'&transfrom=auto&transto=zh-CHS&model=general')
+}else if(way==='9'){
+window.location.assign('https://translate.yandex.com/?source=tabbar&source_lang=ja&target_lang=zh&text="'+text+'"')
 }else{
 window.location.assign('https://fanyi.baidu.com/?aldtype=38319#auto/zh/'+text)
 }
@@ -997,3 +998,40 @@ downloadbutton.style.display = "none";
 downloadP.innerHTML = `<img src="downloadfile.svg" id="downloadfile" />选择文件`;
 tsc("✎...","背景修改成功",3000);
 }
+
+
+const IdleadingIn = document.getElementById('leading_In');
+const leadinginB = document.getElementById('leading_In_b');
+function leadingIn(){
+IdleadingIn.style.display="inline";
+leadinginB.style.display="inline";
+}
+leadinginB.onclick = function (){
+IdleadingIn.style.display="none";
+leadinginB.style.display="none";
+}
+function leadingInget(){
+if(JSON.parse(document.getElementById("leading_In_text").value)){
+let a = JSON.parse(document.getElementById("leading_In_text").value);
+let b = true;
+for(let i=0;i<a.length;i++){
+if(!a[i].url||!a[i].title||!a[i].id){
+b = false;
+}
+}
+if(b === true){
+localStorage.setItem("wayk",document.getElementById("leading_In_text").value);
+tsc("✿","成功导入"+a.length+"条",3000);
+IdleadingIn.style.display="none";
+leadinginB.style.display="none";
+for(let i=0;i<a.length;i++){
+document.getElementById("div_di_ul").innerHTML+= `<li><div onclick="xway('`+a[i].url+`',`+a[i].id+`)">`+a[i].title+`</div><img class="Search_delete" onclick="SearchDelete(`+i+`,this)" src="hi_2.svg"></li>`;
+}
+}
+}
+}
+
+function leadingInres(){
+document.getElementById("leading_In_p").innerHTML = localStorage.wayk;
+}
+
