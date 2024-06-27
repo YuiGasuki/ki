@@ -253,7 +253,7 @@ left:calc(50vw - 125px);
 width:250px;
 height:420px;
 background:white;
-border-radius:6vw;
+border-radius:25px;
 z-index: 4;
 overflow:auto;
 display:none;
