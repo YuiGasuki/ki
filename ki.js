@@ -597,6 +597,12 @@ abod[0]=abod[0]+1;
 abod.splice(1,0,text);
 localStorage.hi=JSON.stringify(abod);
 }
+
+if(way.split("(.*?)").length!=1){
+let textb = way.replaceAll("(.*?)",text);
+window.location.assign(textb)
+return
+}p
 window.location.assign(way+text)
 }
         
@@ -737,6 +743,11 @@ abod=JSON.parse(localStorage.hi);
 abod[0]=abod[0]+1;
 abod.splice(1,0,texta);
 localStorage.hi=JSON.stringify(abod);
+}
+if(way.split("(.*?)").length!=1){
+let textb = way.replaceAll("(.*?)",texta);
+window.location.assign(textb)
+return
 }
 window.location.assign(way+texta)
 }

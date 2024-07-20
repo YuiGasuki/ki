@@ -1,5 +1,7 @@
 function newpturn(){
 document.getElementById("new_p").innerHTML=`
+<p>2024.7.20</p>
+<p><span class="newgn">功能</span>自定义搜索引擎时，内容可以用(.*?)来代替，如:<br>http://网站.域名/?text=(.*?)&type=search</p>
 <p>2024.4.21</p>
 <p><span class="newgn">功能</span>支持导入和导出自定义搜索引擎，换浏览器，数据的移动也变得简便了
 </p>
