@@ -602,7 +602,7 @@ if(way.split("(.*?)").length!=1){
 let textb = way.replaceAll("(.*?)",text);
 window.location.assign(textb)
 return
-}p
+}
 window.location.assign(way+text)
 }
         
